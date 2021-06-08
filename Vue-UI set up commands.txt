@@ -1,0 +1,21 @@
+From current folder:
+>yarn install
+
+PROCEDURE for errors:
+> install global build tools: npm install --global windows-build-tools
+> yarn tools: yarn global add windows-build-tools
+> set python path: npm config set python c:\python27amd64\python.exe
+> set msbuild path: npm config set msbuild_path = "C:\Program Files(x86)\Microsoft Visual Studio\2019\BuildTools" msvs_version = "2019"
+
+If more errors:
+> update node sass: npm install node-sass
+> set webpack globally: npm install webpack @^3.0.0
+> In node-gyp folder: node-gyp rebuild
+
+Launch:
+yarn serve --port 8081
+
+Polkadot functionalities
+>yarn add @polkadot/api@beta
+>yarn add @polkadot/util
+
