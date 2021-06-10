@@ -12,15 +12,15 @@
       </div>
       <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 col-xs-6">
-          <h4> CURRENT BLOCK </h4>
+          <h4> BLOCK NUMBER </h4>
             <div>{{ blocknumber }}</div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 col-xs-6">
-          <h4> BLOCK TIME </h4>
-            <div>TBC</div>
+          <h4> RUNTIME VERSION </h4>
+            <div>{{ runtime }}</div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 col-xs-6">
-          <h4> TIMESTAMP </h4>
+          <h4> CURRENT TIMESTAMP </h4>
             <div>{{ timestamp }}</div>
         </div>
       </div>
@@ -42,7 +42,7 @@ export default{
   data(){
     return{
       blocknumber: 0,
-      blocktime: 0,
+      runtime: 0,
       timestamp: 0,
       icons: [
         "icon-app",
@@ -59,21 +59,22 @@ export default{
         });
       });
     },
+    getRuntime() {
+      api.then(api => {
+          api.rpc.state.getRuntimeVersion().then(result => {
+            this.runtime = result.specVersion.toHuman();
+        });
+      });
+    },
     getTimestamp(){
       api.then(api => {
         api.query.timestamp.now().then(ts => this.timestamp = ts);
-        })
-    },
-    /*getEvents() {
-      api.then(api => {
-          api.query.system.events.range(starthdr, endhdr).then(result => {
-            this.event = result.block.header.??();
-        });
-      });
-    }*/
+      })
+    }
   },
   created(){
     this.getBlockNumber();
+    this.getRuntime();
     this.getTimestamp();
   }
 };

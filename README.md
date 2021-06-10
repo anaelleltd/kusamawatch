@@ -3,8 +3,7 @@
 <b>A VueJS Dashboard for monitoring all things PLO-related.</b>
 
 UI is based on Tim Creative's White Dashboard Vue repository.
-This is a working DApp that connects to the Kusama blockchain via api/rpc calls and also uses JSON data for statistics. 
-Still work in progress.
+This is a working DApp that connects to the Kusama blockchain via api/rpc and also uses JSON data for statistics. 
 
 
 To install node modules:

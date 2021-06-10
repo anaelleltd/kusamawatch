@@ -3,7 +3,7 @@
     <card>
       <template slot="header">
         <h2 class="title">Parachains Info</h2>
-        <h3 class="category">Events data</h3>
+        <h3 class="category">On-chain data</h3>
       </template>
       <div class="row">
         <div v-for="icon in icons" class="font-icon-list col-lg-4 col-md-4 col-sm-6">
@@ -16,12 +16,12 @@
             <div>{{ auctioncount }}</div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 col-xs-6">
-          <h4> CROWDLOANS FUNDS </h4>
-            <div>{{ crwdloanfunds }}</div>
+          <h4> ACTIVE CROWDLOANS </h4>
+            <div>{{ crowdloans }}</div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 col-xs-6">
-          <h4> EVENTS SUBMISSION </h4>
-            <div>{{ totalevents }}</div>
+          <h4> LIVE PARACHAINS </h4>
+            <div>{{ liveparachains }}</div>
         </div>
       </div>
     </card>
@@ -42,39 +42,40 @@ export default{
   data(){
     return{
       auctioncount: 0,
-      crwdloanfunds: 0,
-      totalevents: 0,
+      crowdloans: 0,
+      liveparachains: 0, 
       icons: [
-        "icon-check-2",
-        "icon-chart-pie-36",
-        "icon-send"
+        "icon-cloud-upload-94",
+        "icon-satisfied",
+        "icon-check-2"
       ],
     }
   },
   methods: {
-    getBlockNumber() {
+    getAuctionCount(){
       api.then(api => {
-        api.rpc.chain.getBlock().then(result => {
-          this.blocknumber = result.block.header.number.toNumber();
-        });
-      });
+        api.query.auctions.auctionCounter().then(ac => this.auctioncount = ac);
+      })
     },
-    getTimestamp(){
+    getCrowdloans(){
       api.then(api => {
-        api.query.timestamp.now().then(ts => this.timestamp = ts);
+        api.query.crowdloan.newRaise().then(result => {
+          this.crowdloans = JSON.parse(result).length;
         })
+      })
     },
-    /*getEvents() {
+    getLiveParachains(){
       api.then(api => {
-          api.query.system.events.range(starthdr, endhdr).then(result => {
-            this.event = result.block.header.??();
-        });
-      });
-    }*/
+        api.query.paras.parachains().then(result => {
+          this.liveparachains = JSON.parse(result).length;
+        })
+      })
+    }
   },
   created(){
-    this.getBlockNumber();
-    this.getTimestamp();
+    this.getAuctionCount();
+    this.getCrowdloans();
+    this.getLiveParachains();
   }
 };
 </script>

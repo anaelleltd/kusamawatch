@@ -3,7 +3,7 @@
     <card>
       <template slot="header">
         <h2 class="title">Council Info</h2>
-        <h3 class="category">Updated data</h3>
+        <h3 class="category">Stored data</h3>
       </template>
       <div class="row">
         <div v-for="icon in icons" class="font-icon-list col-lg-4 col-md-4 col-sm-6">
@@ -12,16 +12,16 @@
       </div>
       <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 col-xs-6">
-          <h4> TOTAL REGISTRARS </h4>
-            <div>TBC</div>
+          <h4> ACTIVE REGISTRARS </h4>
+            <div>{{ totalregistrars }}</div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 col-xs-6">
           <h4> TOTAL KSM ISSUANCE </h4>
             <div>{{ totalKSM }}</div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 col-xs-6">
-          <h4> TOTAL PROPOSALS </h4>
-            <div>TBC</div>
+          <h4> PROPOSALS FUNDED </h4>
+            <div>{{ totalproposals }}</div>
         </div>
       </div>
     </card>
@@ -42,9 +42,9 @@ export default{
   },
   data(){
     return{
-      totalregistrar: 0,
+      totalregistrars: 0,
       totalKSM: 0,
-      totalproposal: 0,
+      totalproposals: 0,
       icons: [
         "icon-badge",
         "icon-coins",
@@ -53,18 +53,32 @@ export default{
     }
   },
   methods:{
+    getTotalRegistrars(){
+      api.then(api => {
+        api.query.identity.registrars().then(result => {
+          this.totalregistrars = JSON.parse(result).length;
+        })
+      })
+    },
     getTotalKSM(){
       api.then(api => {
         api.query.balances.totalIssuance().then(result => {
           this.totalKSM = result.toHuman();
         })
-        })
-      }
+      })
     },
+    getTotalProposals(){
+      api.then(api => {
+        api.query.council.proposalCount().then(tp => this.totalproposals = tp);
+      })
+    }
+  },
   created(){
+    this.getTotalRegistrars();
     this.getTotalKSM();
-    },
-  };
+    this.getTotalProposals();
+  },
+};
 </script>
 <style>
 </style>

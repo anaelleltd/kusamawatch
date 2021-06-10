@@ -64,7 +64,7 @@
         type="chart"
         cardCol>
         <template slot="header">
-          <h5 class="card-category">Liquidity</h5>
+          <h5 class="card-category">Top Liquidity</h5>
           <h3 class="card-title"><i class="tim-icons icon-money-coins text-info "></i> Pricing in KSM</h3>
         </template>
           <bar-chart
@@ -105,14 +105,14 @@ export default {
         },
       bigLineChartCategories:[
         "Live Parachains",
-        "Listed Projects",
+        "Listed projects",
         "Ongoing Events"
       ],
       bigLineChart: {
         allData: [
-          [0, 0, 0, 0, 0, 0, 0],
-          [16, 22, 22, 22, 22, 22, 22],
-          [10, 11, 12, 13, 13, 10, 10]
+          [1, 1, 1, 1, 1, 1, 1, 1],
+          [0, 4, 4, 4, 4, 4, 4, 4],
+          [10, 13, 13, 13, 13, 13, 13, 13]
         ],
         activeIndex: 0,
         chartData: { datasets: [{ }]},
@@ -178,7 +178,7 @@ export default {
           pointRadius: 4,
           data: this.bigLineChart.allData[index]
         }],
-        labels: ['5th June', '12th June', '19th June', '26th June', '3rd July', '10th July', '17th July'],
+        labels: ['4th June', '11th June', '18th June', '25th June', '2nd July', '9th July', '16th July', '23rd July'],
       }
       this.$refs.bigChart.updateGradients(chartData);
       this.bigLineChart.chartData = chartData;
