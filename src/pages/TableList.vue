@@ -33,7 +33,7 @@ const tableData = [
           "project": "Altair",
           "supply": "425M",
           "allocation": "<27%",
-          "rewards": "50 AIR",
+          "rewards": ">50 AIR",
           "events": "CFG holders airdrop",
           "webpage": "https://medium.com/centrifuge/announcing-altair-centrifuges-kusama-parachain-d4cd7d328187"
         },
@@ -42,7 +42,7 @@ const tableData = [
           "project": "Sora",
           "supply": "600M",
           "allocation": "25%",
-          "rewards": " >600 PSWAP",
+          "rewards": ">600 PSWAP",
           "events": "Whitelist Bonus 5%",
           "webpage": "https://medium.com/polkaswap/pswap-rewards-1-polkaswap-liquidity-reward-farming-3e045d71509"
         },
@@ -60,7 +60,7 @@ const tableData = [
           "project": "Kpron",
           "supply": "80M",
           "allocation": "<8%",
-          "rewards": "10 KPN",
+          "rewards": ">10 KPN",
           "events": "None",
           "webpage": "https://apron-network.medium.com/apron-network-will-compete-the-kusama-parachain-slot-auction-14c13de5a645"
         },
@@ -86,7 +86,7 @@ const tableData = [
           "id": 7,
           "project": "Basilisk",
           "supply": "100B",
-          "allocation": "<15%",
+          "allocation": "15%",
           "rewards": " -- BSX",
           "events": "HDX holders airdrop",
           "webpage": "https://hydradx.substack.com/p/introducing-basilisk"
@@ -111,12 +111,30 @@ const tableData = [
         },
         {
           "id": 10,
+          "project": "Litentry",
+          "supply": "100M",
+          "allocation": "--%",
+          "rewards": "-- LIT",
+          "events": "None",
+          "webpage": "https://forum.litentry.com/t/quick-sync-on-our-parachain-slot-auction-strategy/185"
+        },
+        {
+          "id": 11,
           "project": "Unique",
           "supply": "--M",
           "allocation": "--%",
           "rewards": "-- UNQ",
           "events": "Chelobrick NFT gift",
           "webpage": "https://whitelabel.market/#/market"
+        },
+        {
+          "id": 12,
+          "project": "Bit.Country",
+          "supply": "--M",
+          "allocation": "--%",
+          "rewards": "-- NUUM",
+          "events": "None",
+          "webpage": "https://bit.country/"
         }
 ];
 

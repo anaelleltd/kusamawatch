@@ -23,6 +23,7 @@ import "vue-github-buttons/dist/vue-github-buttons.css"
 import App from "./App.vue";
 import '@/assets/scss/white-dashboard.scss';
 import '@/assets/css/nucleo-icons.css';
+import '@/assets/css/bootstrap-no-rtl.css';
 import "@/assets/demo/demo.css";
 
 

@@ -19,3 +19,12 @@ Polkadot functionalities
 >yarn add @polkadot/api@beta
 >yarn add @polkadot/util
 
+Build via Vue CLI:
+>yarn build
+
+Deployment:
+>serve -s dist
+
+If errors for previews:
+>npm install -g serve
+

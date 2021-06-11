@@ -8,7 +8,7 @@
             <h3 class="category">Breaking news</h3>
          </template>
           <base-alert type="primary" dismissible>
-            <span>PLOs are coming soon!</span>
+            <span>Auctions are coming soon!</span>
           </base-alert>
           <base-alert type="info" dismissible>
             <span>You need to <b> unbond your KSM</b> ASAP.</span>
