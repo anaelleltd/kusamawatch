@@ -18,10 +18,8 @@ To install Polkadot utilities:
 To run the DApp in development:
 > yarn serve --port 8081 [or any other]
 
-To build the DApp for production:
+To preview in production:
 > yarn build
-
-To preview:
 > serve -s dist
 
 
