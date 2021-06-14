@@ -9,6 +9,6 @@ module.exports = {
 
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production'
-    ? '/' + process.env.kusamawatch + '/'
-    : '/public/'
+    ? '/' + process.env.kusamawatch + '/public/'
+    : '/'
 }
