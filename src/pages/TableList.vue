@@ -43,7 +43,7 @@ const tableData = [
           "supply": "600M",
           "allocation": "25%",
           "rewards": ">600 PSWAP",
-          "events": "Whitelist Bonus 5%",
+          "events": "LP farming",
           "webpage": "https://medium.com/polkaswap/pswap-rewards-1-polkaswap-liquidity-reward-farming-3e045d71509"
         },
         {
@@ -161,4 +161,7 @@ export default{
 }
 </script>
 <style>
+th {
+  text-align: center;
+}
 </style>
