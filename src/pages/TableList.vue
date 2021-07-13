@@ -30,15 +30,33 @@ const tableColumns = ["Project", "Supply", "Allocation", "Rewards", "Events", "W
 const tableData = [
         {
           "id": 1,
-          "project": "Altair",
-          "supply": "425M",
-          "allocation": "<27%",
-          "rewards": ">50 AIR",
-          "events": "CFG holders airdrop",
-          "webpage": "https://medium.com/centrifuge/announcing-altair-centrifuges-kusama-parachain-d4cd7d328187"
+          "project": "Heiko",
+          "supply": "10M",
+          "allocation": "5%",
+          "rewards": ">25 HKO",
+          "events": "Whitelist (ends 12th July)",
+          "webpage": "https://parallelfinance.medium.com/introducing-heiko-parallels-parachain-on-kusama-958bf553c6ae"
         },
         {
           "id": 2,
+          "project": "Kabocha",
+          "supply": "5B",
+          "allocation": "5-10%",
+          "rewards": "-- KAB",
+          "events": "EDG holders airdrop",
+          "webpage": "https://commonwealth.im/edgeware/proposal/discussion/1415-kabocha-kab-a-ksm-parachain-from-edgeware"
+        },
+        {
+          "id": 3,
+          "project": "TrustBase",
+          "supply": "1B",
+          "allocation": "--%",
+          "rewards": "-- TBE",
+          "events": "None",
+          "webpage": "https://trustbase.network/"
+        },
+        {
+          "id": 4,
           "project": "Sora",
           "supply": "600M",
           "allocation": "25%",
@@ -47,70 +65,25 @@ const tableData = [
           "webpage": "https://medium.com/polkaswap/pswap-rewards-1-polkaswap-liquidity-reward-farming-3e045d71509"
         },
         {
-          "id": 3,
+          "id": 5,
+          "project": "SherpaX",
+          "supply": "21M",
+          "allocation": "<40%",
+          "rewards": "-- KSX",
+          "events": "2+1 Testnet Competition",
+          "webpage": "https://chainx-org.medium.com/polkax-advice-on-ksx-crowdloan-69bbb751807a"
+        },
+        {
+          "id": 6,
           "project": "Zeitgeist",
           "supply": "100M",
           "allocation": "6.6%",
           "rewards": " % pool",
           "events": "Bonus Derby",
-          "webpage": "https://proto.zeitgeist.pm/kusama-derby"
-        },
-        {
-          "id": 4,
-          "project": "Kpron",
-          "supply": "80M",
-          "allocation": "<8%",
-          "rewards": ">10 KPN",
-          "events": "None",
-          "webpage": "https://apron-network.medium.com/apron-network-will-compete-the-kusama-parachain-slot-auction-14c13de5a645"
-        },
-        {
-          "id": 5,
-          "project": "Subsocial",
-          "supply": "100M",
-          "allocation": "20%",
-          "rewards": "-- SUB",
-          "events": "KSM holders airdrop",
-          "webpage": "https://app.subsocial.network/faucet"
-        },
-        {
-          "id": 6,
-          "project": "SubDAO",
-          "supply": "1B",
-          "allocation": "<30%",
-          "rewards": "-- GOV",
-          "events": "GOV farming",
-          "webpage": "https://drive.google.com/file/d/19PldVYbXazmwYRRz-LLdv1I3U1-vYi4z/view"
+          "webpage": "https://zeitgeist.pm/"
         },
         {
           "id": 7,
-          "project": "Basilisk",
-          "supply": "100B",
-          "allocation": "15%",
-          "rewards": " -- BSX",
-          "events": "HDX holders airdrop",
-          "webpage": "https://hydradx.substack.com/p/introducing-basilisk"
-        },
-        {
-          "id": 8,
-          "project": "Hedgeware",
-          "supply": "5B",
-          "allocation": "<10%",
-          "rewards": "-- HEDG",
-          "events": "EDG holders airdrop",
-          "webpage": "https://commonwealth.im/edgeware/proposal/discussion/1153-announcing-hedgeware-a-kusama-parachain-for-edgeware"
-        },
-        {
-          "id": 9,
-          "project": "Kylin",
-          "supply": "1B",
-          "allocation": "<10%",
-          "rewards": "-- KYL",
-          "events": "None",
-          "webpage": "https://wiki.kylin.network/getting-started/kylin-network-token-economics"
-        },
-        {
-          "id": 10,
           "project": "Litentry",
           "supply": "100M",
           "allocation": "--%",
@@ -119,23 +92,51 @@ const tableData = [
           "webpage": "https://forum.litentry.com/t/quick-sync-on-our-parachain-slot-auction-strategy/185"
         },
         {
-          "id": 11,
-          "project": "Unique",
-          "supply": "--M",
-          "allocation": "--%",
-          "rewards": "-- UNQ",
-          "events": "Chelobrick NFT gift",
-          "webpage": "https://whitelabel.market/#/market"
+          "id": 8,
+          "project": "Kylin",
+          "supply": "1B",
+          "allocation": "<10%",
+          "rewards": "-- KYL",
+          "events": "None",
+          "webpage": "https://wiki.kylin.network/getting-started/kylin-network-token-economics"
         },
         {
-          "id": 12,
+          "id": 9,
+          "project": "SubDAO",
+          "supply": "1B",
+          "allocation": "<30%",
+          "rewards": "-- GOV",
+          "events": "GOV farming",
+          "webpage": "https://drive.google.com/file/d/19PldVYbXazmwYRRz-LLdv1I3U1-vYi4z/view"
+        },
+        {
+          "id": 10,
           "project": "Bit.Country",
           "supply": "--M",
           "allocation": "--%",
           "rewards": "-- NUUM",
-          "events": "None",
+          "events": "Continuum testnet competition",
           "webpage": "https://bit.country/"
+        },
+        {
+          "id": 11,
+          "project": "Subsocial",
+          "supply": "100M",
+          "allocation": "20%",
+          "rewards": " -- SUB",
+          "events": "KSM holders airdrop",
+          "webpage": "https://subsocial.network/"
+        },
+        {
+          "id": 12,
+          "project": "Unique",
+          "supply": "--M",
+          "allocation": "--%",
+          "rewards": "-- UNQ",
+          "events": "Chelobrick NFT marketplace",
+          "webpage": "https://unqnft.io/#/market"
         }
+        
 ];
 
 

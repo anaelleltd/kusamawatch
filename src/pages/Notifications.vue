@@ -8,13 +8,13 @@
             <h3 class="category">Breaking news</h3>
          </template>
           <base-alert type="primary" dismissible>
-            <span>Auctions are coming soon!</span>
+            <span>Auctions are LIVE!</span>
           </base-alert>
           <base-alert type="info" dismissible>
-            <span>You need to <b> unbond your KSM</b> ASAP.</span>
+            <span>You need to <b> unbond your KSM</b> to participate.</span>
           </base-alert>
           <base-alert type="success" dismissible>
-            <span>Keep an eye on Pre-PLO events webpages for more information.</span>
+            <span>Keep an eye on the <i>Ongoing events</i> tab for more information.</span>
           </base-alert>
           <base-alert type="warning" dismissible>
             <span>Make sure you have a <u>strategy</u> for allocating your KSM between loaning and staking.</span>

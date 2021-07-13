@@ -59,8 +59,8 @@ export default{
     },
     getCrowdloans(){
       api.then(api => {
-        api.query.crowdloan.newRaise().then(result => {
-          this.crowdloans = JSON.parse(result).length;
+        api.query.crowdloan.nextTrieIndex().then(result => {
+          this.crowdloans = result.toNumber()-1;
         })
       })
     },
