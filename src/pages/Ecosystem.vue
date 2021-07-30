@@ -13,10 +13,10 @@
       </div>
       <div class="row">
         <div v-for="icon in icons" class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
-      <i class="tim-icons" "icon-settings"></i>
+      <i class="tim-icons"></i>
           <div class="font-icon-detail">
             <i class="tim-icons" :class="[`${icon}`]"></i>
-            <p>{{ logo }}</p>
+            <p>{{ icon }}</p>
           </div>
         </div>
       </div>
@@ -36,10 +36,7 @@ export default{
   },
   data(){
     return{
-      logos: [
-        "icon-alert-circle-exc",
-        "icon-align-center",
-        "icon-align-left-2",
+      logo: [
         "icon-app",
         "icon-atom",
         "icon-attach-87",

@@ -4,7 +4,7 @@
 
 UI is based on Tim Creative's White Dashboard Vue repository.
 This is a working DApp that connects to the Kusama blockchain via api/rpc and also uses JSON data for statistics. 
-
+[TO DO: Update stats]
 
 To install node modules:
 > yarn install

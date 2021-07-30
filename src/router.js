@@ -7,6 +7,7 @@ import Blocks from "@/pages/Blocks.vue";
 import Council from "@/pages/Council.vue";
 import Ecosystem from "@/pages/Ecosystem.vue";
 import Notifications from "@/pages/Notifications.vue";
+import Profiles from "@/pages/Profiles.vue";
 import Icons from "@/pages/Icons.vue";
 import Maps from "@/pages/Maps.vue";
 import Typography from "@/pages/Typography.vue";
@@ -51,6 +52,11 @@ const routes = [{
       path: "notifications",
       name: "Notifications",
       component: Notifications
+    },
+    {
+      path: "profiles",
+      name: "Profiles",
+      component: () => import("@/pages/Profiles.vue"),
     },
     {
       path: "icons",

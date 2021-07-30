@@ -32,6 +32,10 @@
         <i class="tim-icons icon-bell-55"></i>
           <p>Notifications</p>
       </sidebar-link>
+      <sidebar-link to="/profiles">
+        <i class="tim-icons icon-single-02"></i>
+          <p>Profiles</p>
+      </sidebar-link>
     </side-bar>
 
     <sidebar-share :background-color.sync="backgroundColor"></sidebar-share>

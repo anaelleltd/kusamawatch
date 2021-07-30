@@ -23,6 +23,14 @@
           <h4> LIVE PARACHAINS </h4>
             <div>{{ liveparachains }}</div>
         </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xs-12">
+          <h4></h4>
+            <div></div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xs-12">
+          <h4> ACTIVE PARAVALIDATORS </h4>
+          <div>{{ paravalidators }}</div>
+        </div>
       </div>
     </card>
   </div>
@@ -43,7 +51,8 @@ export default{
     return{
       auctioncount: 0,
       crowdloans: 0,
-      liveparachains: 0, 
+      liveparachains: 0,
+      paravalidators: 0, 
       icons: [
         "icon-cloud-upload-94",
         "icon-satisfied",
@@ -70,12 +79,18 @@ export default{
           this.liveparachains = JSON.parse(result).length;
         })
       })
+    },
+    getParavalidators(){
+      api.then(api => {
+        api.query.parasShared.activeValidatorKeys().then(pv => this.paravalidators = pv.length);
+      })   
     }
   },
   created(){
     this.getAuctionCount();
     this.getCrowdloans();
     this.getLiveParachains();
+    this.getParavalidators();
   }
 };
 </script>

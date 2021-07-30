@@ -60,7 +60,7 @@ const tableData = [
           "project": "Sora",
           "supply": "600M",
           "allocation": "25%",
-          "rewards": ">600 PSWAP",
+          "rewards": "-- PSWAP",
           "events": "LP farming",
           "webpage": "https://medium.com/polkaswap/pswap-rewards-1-polkaswap-liquidity-reward-farming-3e045d71509"
         },

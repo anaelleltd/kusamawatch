@@ -4,67 +4,83 @@
       <div class="col-lg-12 col-md-12">
         <card>
           <template slot="header">
-            <h2 class="title">Noticeboard</h2>
-            <h3 class="category">Breaking news</h3>
+            <h2 class="title">Notifications</h2>
+            <h3 class="category">On-chain events</h3>
          </template>
-          <base-alert type="primary" dismissible>
-            <span>Auctions are LIVE!</span>
-          </base-alert>
-          <base-alert type="info" dismissible>
-            <span>You need to <b> unbond your KSM</b> to participate.</span>
-          </base-alert>
-          <base-alert type="success" dismissible>
-            <span>Keep an eye on the <i>Ongoing events</i> tab for more information.</span>
-          </base-alert>
-          <base-alert type="warning" dismissible>
-            <span>Make sure you have a <u>strategy</u> for allocating your KSM between loaning and staking.</span>
-          </base-alert>
-          <base-alert type="danger" dismissible>
-            <span><b> NEVER </b> Send your KSM to anybody. PLOs are conducted through wallets and DApps.</span>
-          </base-alert>
+         <div class="row">
+          <div class="col-lg col-md col-sm-6">
+            <card v-for="(event, block) in events">
+              {{ block }}
+              <p v-for="e in event">
+              {{ e }}
+              </p>
+          </card>
+          </div>
+         </div>
         </card>
       </div>
     </div>
   </div>
 </template>
 <script>
-import {
-  Card
-} from "@/components/index";
+import { Card } from "@/components/index";
 
-import BaseAlert from '@/components/BaseAlert';
-import BaseButton from '@/components/BaseButton';
-import NotificationTemplate from './Notifications/NotificationTemplate';
+import api from "../kusama.js";
 
-
-export default{
-  components:{
-    BaseAlert,
-    BaseButton,
-    Card
+export default {
+  components: {
+    Card,
   },
-  data(){
+  data() {
     return {
-      type:["","info","success","warning","danger"],
-      notifications:{
-        topCenter: false
-      }
+      events: {},
+      unsub: null,
     };
   },
-  methods:{
-    notifyVue(verticalAlign, horizontalAlign){
-      const color = Math.floor(Math.random() * 4 + 1);
-      this.$notify({
-        component: NotificationTemplate,
-        icon: "tim-icons icon-bell-55",
-        horizontalAlign: horizontalAlign,
-        verticalAlign: verticalAlign,
-        type: this.type[color],
-        timeout: 0
-      });
-    }
-  }
-}
+  methods: {
+    subscribe: async function(){
+      let myapi = await api;
+
+      // Set API query for events
+      myapi.query.system.events(async (events) => {
+
+        // Get block number from block header
+        let header = await myapi.rpc.chain.getHeader();
+        let blockNumber = header.toJSON().number;
+
+        // Format event data 
+        let eventArray = [];
+        events.forEach((record) => {
+          const { event, phase } = record;
+          const types = event.typeDef;
+          console.log(event);
+          eventArray.push(
+            `\t${event.section}:${
+              event.method
+            }`
+          );
+        });
+
+        // Check subscription status
+        console.log("Still here");
+        this.$set(this.events, blockNumber, eventArray);
+      })
+      .then((_unsub) => (this.unsub = _unsub)); //Unsub
+    },
+    unsubscribe: function() {
+      if (this.unsub) {
+        this.unsub();
+        console.log("Unsubbed");
+      }
+    },
+  },
+  created(){
+    this.subscribe();
+  },
+  beforeDestroy() {
+    this.unsubscribe();
+  },
+};
 </script>
 <style>
 </style>

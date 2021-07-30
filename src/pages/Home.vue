@@ -78,6 +78,17 @@
         </card>
       </div>
     </div>
+    <card>
+    <div slot="footer" class="button-container text-center">
+      <h5 class="card-category"> Contact </h5>
+      <base-button icon round class="btn-facebook">
+        <a href="https://t.me/AnaelleLTD"><i class="fab fa-telegram"></i></a>
+      </base-button>
+      <base-button icon round class="btn-google">
+        <a href="https://www.reddit.com/user/Nachann26/"><i class="fab fa-reddit"></i></a>
+      </base-button>
+    </div>
+  </card>
   </div>
 </template>
 <script>
@@ -89,6 +100,7 @@ import {
 import LineChart from '@/components/Charts/LineChart';
 import BarChart from '@/components/Charts/BarChart';
 import * as chartConfigs from '@/components/Charts/config';
+import BaseButton from '@/components/BaseButton';
 
 import config from '@/config';
 
